@@ -72,6 +72,10 @@ function App() {
       {
         path: '/shop',
         element: <MyShop />,
+      },
+      {
+        path: '*',
+        element: <ErrorMessage />,
       }
     ],
     {

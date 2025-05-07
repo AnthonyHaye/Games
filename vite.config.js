@@ -2,16 +2,13 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
-export default defineConfig({
-  base: '/',
-  plugins: [    
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/Games/' : '/',
+  plugins: [
     react(),
     VitePWA({
-      // Mise à jour automatique du service worker
       registerType: 'autoUpdate',
-      // Fichiers à inclure dans le cache
       includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
-      // Configuration du manifest
       manifest: {
         name: 'Annuaire de jeux',
         short_name: 'Jeux',
@@ -47,7 +44,6 @@ export default defineConfig({
           },
         ]
       },
-      // Configuration Workbox pour cache API + images
       workbox: {
         runtimeCaching: [
           {
@@ -57,7 +53,7 @@ export default defineConfig({
               cacheName: 'api-cache',
               expiration: {
                 maxEntries: 100,
-                maxAgeSeconds: 86400, // 24 heures
+                maxAgeSeconds: 86400,
               },
               cacheableResponse: {
                 statuses: [0, 200],
@@ -71,7 +67,7 @@ export default defineConfig({
               cacheName: 'image-cache',
               expiration: {
                 maxEntries: 100,
-                maxAgeSeconds: 7 * 24 * 60 * 60, // 7 jours
+                maxAgeSeconds: 604800,
               },
               cacheableResponse: {
                 statuses: [0, 200],
@@ -82,4 +78,4 @@ export default defineConfig({
       },
     }),
   ],
-})
+}))
