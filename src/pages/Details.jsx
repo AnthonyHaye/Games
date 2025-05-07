@@ -36,7 +36,7 @@ const Details = () => {
       {/* Bouton retour */}
       <div className="mb-6">
         <Link
-          to="/Games"
+          to="/"
           className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
         >
           ← Retour à l'accueil
