@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-  plugins: [
+  base: '/games/',
+  plugins: [    
     react(),
     VitePWA({
       // Mise à jour automatique du service worker
