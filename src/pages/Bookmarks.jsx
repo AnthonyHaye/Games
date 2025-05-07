@@ -17,7 +17,7 @@ const Bookmarks = () => {
       <h2 className="text-3xl font-bold text-center mb-6">Mes favoris</h2>
       <div className="mb-6">
         <Link
-          to="/"
+          to="/Games"
           className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
         >
           ← Retour à l'accueil

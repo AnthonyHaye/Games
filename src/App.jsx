@@ -57,7 +57,7 @@ function App() {
   const router = createBrowserRouter(
     [
       {
-        path: '/',
+        path: '/Games',
         element: <Home />,
         errorElement: <ErrorMessage />,
       },
