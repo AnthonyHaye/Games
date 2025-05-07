@@ -79,7 +79,7 @@ function App() {
       }
     ],
     {
-      basename: '/',
+      basename: import.meta.env.DEV ? '/' : '/Games',
     }
   );
 
