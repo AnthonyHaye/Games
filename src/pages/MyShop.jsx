@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import haversine from "../utils/haversine"; // ⚠️ Assure-toi d’avoir un export par défaut ou adapte ici
+import haversine from "../utils/haversine"; 
+import { Link } from "react-router-dom";
 
 const MyShop = () => {
   const [shops, setShops] = useState([]);
@@ -82,6 +83,15 @@ const MyShop = () => {
     <div className="max-w-3xl mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-4">Boutiques virtuelles 🛍️</h1>
 
+      <div className="mb-6">
+              <Link
+                to="/"
+                className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+              >
+                ← Retour à l'accueil
+              </Link>
+      </div>
+
       {geoError && <p className="text-center text-red-500 mb-4">{geoError}</p>}
 
       {position && (
@@ -103,7 +113,7 @@ const MyShop = () => {
               className="p-4 border rounded shadow hover:shadow-md transition text-center"
             >
               <h2 className="text-xl font-semibold">{shop.name}</h2>
-              <p className="text-gray-600 mb-1">{shop.description}</p>
+              <p className="text-gray-600 mb-1">{shop.city}</p>
 
               {typeof shop.distance === "number" && !isNaN(shop.distance) ? (
                 <p className="text-gray-800">
