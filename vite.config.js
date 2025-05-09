@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
         short_name: 'Jeux',
         description: 'Application de recherche de jeux vidéo',
         theme_color: '#ffffff',
-        start_url: '/',
+        start_url: '/Games/',
         display: 'standalone',
         background_color: '#ffffff',
         icons: [
